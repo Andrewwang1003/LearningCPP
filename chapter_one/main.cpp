@@ -12,14 +12,14 @@ int main(){
 
     cout << "What's your hourly pay? \n";
     double hourly_pay {};
-    cin >> hours_worked;
+    cin >> hourly_pay;
 
     cout.setf(ios::fixed);
     cout.precision(2);
 
     double weekly_wage = hourly_pay * hours_worked;
     cout << "You've made $" << weekly_wage << " this week!\n";
-    
+
     double withholdingrate;
     if (hourly_pay >= PAYTHRESHOLD)
         withholdingrate = HIGH_WITHHOLDINGRATE;

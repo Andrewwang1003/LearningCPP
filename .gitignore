@@ -4,7 +4,7 @@
 *.o
 *.obj
 
-# Compiled Precompiled Headers
+# Precompiled headers
 *.gch
 *.pch
 
@@ -12,25 +12,30 @@
 *.lib
 *.a
 *.la
-*.lo
 
-# Shared objects (DLLs / dynamic libraries)
+# Shared objects
 *.so
 *.so.*
 *.dylib
 *.dll
 
-# Executables / Machine code
+# Executables
 *.exe
 *.out
 *.app
-main.out
+a.out
 
-# Debug directories
-.DS_Store
-*.dSYM/
+# Extensionless binaries — list the output names you use with -o
+# (no leading slash = matches in every subdirectory)
+main
+
+# Build/output directories
 build/
 bin/
 obj/
+*.dSYM/
+
+# OS / editor
+.DS_Store
 .vscode/
 .idea/

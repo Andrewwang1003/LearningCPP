@@ -1,0 +1,44 @@
+1. Why are named constants often a better choice than literal constants?
+
+Because named constants ensure that if a value of the constant is edited, the variable uses of the named costant will also change
+Also because literal constants can have confusing context surrounding it and must be changed muitiple times if editing the value
+
+2. Find 3 issues in the following code:
+
+#include <cstdint> // for std::uint8_t
+#include <iostream>
+
+int main()
+{
+  std::cout << "How old are you?\n";
+
+  std::uint8_t age{};
+  std::cin >> age;
+
+  std::cout << "Allowed to drive a car in Texas: ";
+
+  if (age >= 16)
+      std::cout << "Yes";
+  else
+      std::cout << "No";
+
+  std::cout << '.\n';
+
+  return 0;
+}
+
+issue 1: uint8_t is treated as a char type, so the value of whatever age put in gets converted to the ascii value during comparison
+issue 2: 16 is a literal constant so it is confusing what it means or represents in this context
+issue 3: the char value in the last cout statement has muitiple values which causes it to not be correctly evaluated
+
+3. What are the primary differences between std::string and std::string_view?
+What can go wrong when using a std::string_view?
+
+std::string makes a string variable which is a connection of chars together, meaning characters can be added, removed and changed. However making
+or assigning a string is very expensive to memory and is not suggested to be done lightly
+std::string_view is a pointer pointing at a string variable, meaning that i can read the varaible information but cant edit it directly. However 
+if the original string is edited at all, the string_view does not work and must be redefined. 
+
+5. In the solution to the above quiz, why can’t variable age1 in main be constexpr?
+
+Because age1 is dependent on what the user inputs meaning that it is not defined during complier time, only during runtime
